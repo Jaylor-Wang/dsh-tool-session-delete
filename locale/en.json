@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Session delete",
+    "description": "Adds a permanent Delete session action to the sidebar session menu, behind a confirmation dialog."
+  }
+}

@@ -1,0 +1,8 @@
+# dsh bundle patch: inserts this plugin into a profile's layer stack.
+#
+# With this file declared as `dsh.bundle.patch` in package.json, `dsh plugin
+# add` wires the plugin into the profile by itself — there is no need to add an
+# `insert:` row to the profile's own cordis.patch.yml by hand.
+- insert:
+    - id: tool-session-delete
+      name: 'dsh-tool-session-delete'
