@@ -19,6 +19,9 @@
     "cordis",
     "plugin"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "main": "lib/index.js",
   "exports": {
     ".": "./lib/index.js",
@@ -41,6 +44,9 @@
   },
   "files": [
     "CHANGELOG.md",
+    "README.md",
+    "README.zh.md",
+    "LICENSE",
     "cordis.patch.yml",
     "lib/index.js",
     "lib/client.js",

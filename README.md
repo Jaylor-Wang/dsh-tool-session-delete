@@ -1,5 +1,11 @@
 # dsh-tool-session-delete
 
+English | [中文](README.zh.md)
+
+[![npm version](https://img.shields.io/npm/v/dsh-tool-session-delete.svg?color=blue)](https://www.npmjs.com/package/dsh-tool-session-delete)
+[![license](https://img.shields.io/github/license/Jaylor-Wang/dsh-tool-session-delete.svg)](LICENSE)
+[![GitHub release](https://img.shields.io/github/v/release/Jaylor-Wang/dsh-tool-session-delete.svg)](https://github.com/Jaylor-Wang/dsh-tool-session-delete/releases)
+
 A permanent **Delete session** action for the DeepSeek Harness sidebar, behind a
 confirmation dialog that tells you what is about to go.
 
@@ -56,11 +62,13 @@ profile layer by itself — **you do not need to edit `cordis.patch.yml`**. Bare
 **zero dependencies** — do not add them.
 
 ```bash
+# Via DSH Plugin CLI (Recommended)
 dsh plugin --profile web add dsh-tool-session-delete
+
+# Via npm / pnpm
+npm install dsh-tool-session-delete
+pnpm add dsh-tool-session-delete
 ```
-
-That is the npm name, and it is also the repository name.
-
 From a source clone, `dsh plugin` is a pnpm passthrough, so a `file:` path works
 too:
 
