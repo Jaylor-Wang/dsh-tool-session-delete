@@ -4,6 +4,15 @@ All notable changes to this project are documented here.
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and
 the project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 1.2.0 — 2026-10-24
+
+### Added
+
+- **Windows File Lock Resilience (`rmWithRetry`)**: Implemented progressive retry backoff (6 attempts, 150ms interval) for Windows filesystem locks (`EBUSY`, `EPERM`, `EACCES`, `ENOTEMPTY`), preventing transient antivirus and search indexer locks from blocking deletion.
+- **Asynchronous Deletion Verification (`verifyDeleted`)**: Handled Windows deferred deletion semantics with repeated existence probing before declaring failure.
+- **Settle Delay Buffer (`STOP_SETTLE_MS`)**: Added a 500ms quiescence period following `workspace/session-stop` and `sessions.flush` to ensure in-flight stream flushes finish writing before unlinking.
+- **Pinned State Cleanup (`unpinSession`)**: Ensured pinned sessions cleanly drop their pin state from `workspaceRegistry` upon deletion to prevent dangling pinned session entries.
+
 ## 1.1.0 — 2026-10-24
 
 - Renamed and rebranded plugin as `dsh-tool-session-delete`.

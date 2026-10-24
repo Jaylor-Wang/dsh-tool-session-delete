@@ -39,8 +39,9 @@ DSH 原生自带的「归档」（Archive）是可逆操作，会将记录保存
 
 本插件的 `release()` 严格遵循宿主 Fiber 的解绑顺序：
 - **先解绑 Agents，再解绑 Sessions**（防止 `agent/disposed` 意外反向重新广播 `api-session/added`）；
-- 从工作区归档集合中调用 `unarchiveSession(id)`；
-- 从当前工作区调用 `workspace.detachSession(id)`。
+- 从工作区归档集合中调用 `unarchiveSession(id)` 并解除置顶 `unpinSession(id)`；
+- 从当前工作区调用 `workspace.detachSession(id)`；
+- 针对 Windows 文件锁与反病毒软件扫描，内置退避重试（`rmWithRetry`）与延迟落盘缓冲（`STOP_SETTLE_MS`），杜绝 `EBUSY / EPERM` 报错。
 
 浏览器端同时维护 `retired` 集合，在每次列表刷新后自动补全移除，确保界面平滑、零复活、零闪烁。
 

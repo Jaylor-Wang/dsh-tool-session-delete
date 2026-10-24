@@ -1,6 +1,6 @@
 {
   "name": "dsh-tool-session-delete",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Add a permanent Delete session action to the sidebar session context menu, behind a confirmation dialog that reports the log size and the session's live activity before deleting.",
   "license": "MIT",
   "author": "Jaylor-Wang",
@@ -19,6 +19,9 @@
     "cordis",
     "plugin"
   ],
+  "scripts": {
+    "test": "node --import=./test/loader.mjs --test test/**/*.test.mjs"
+  },
   "publishConfig": {
     "access": "public"
   },

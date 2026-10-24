@@ -50,9 +50,12 @@ earlier ones reappear, and that archived rows come back stuck in Archived foreve
 
 `release()` therefore detaches through the same teardown the owning fiber uses,
 in the order the agent loop's own disposal uses — **agents first, then
-sessions** — plus `unarchiveSession(id)` and `workspace.detachSession(id)`. The
-browser keeps its own `retired` set and re-applies every retirement after each
-refresh, so rows stay retired until the Host's `api-session/removed` agrees.
+sessions** — plus `unarchiveSession(id)`, `unpinSession(id)`, and
+`workspace.detachSession(id)`. To withstand Windows transient filesystem locks
+(antivirus / indexers), `removeLog()` executes with progressive retry backoff
+(`rmWithRetry`) and deferred-delete verification. The browser keeps its own
+`retired` set and re-applies every retirement after each refresh, so rows stay
+retired until the Host's `api-session/removed` agrees.
 
 ## Install
 
